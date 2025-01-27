@@ -39,6 +39,7 @@ int main() {
                 int value = std::stoi(num);
                 if (value < 1 || value > 9) {
                     is_valid_floor = false;
+                    std::cout << "Enter a valid floor!\n\n";
                     queue.clear();
                     break;
                 }
@@ -46,6 +47,7 @@ int main() {
             }
         } catch (std::invalid_argument) {
             is_valid_floor = false;
+            std::cout << "Enter a valid floor!\n\n";
             queue.clear();
         }
     }
@@ -53,6 +55,7 @@ int main() {
         elevator.add_floor(queue.front());
         queue.dequeue();
     }
+    std::cout << "\nSimulation:\n";
     elevator.run(floor);
 
     return 0;
@@ -69,6 +72,7 @@ int get_floor(std::string_view prompt) {
         }
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Enter a valid floor!\n\n";
     }
     return floor;
 }
@@ -84,6 +88,7 @@ std::string get_direction(std::string_view prompt) {
         }
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Enter a valid direction!\n\n";
     }
     return floor;
 }

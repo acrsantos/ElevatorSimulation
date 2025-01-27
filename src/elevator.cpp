@@ -15,24 +15,24 @@
 int get_floor(std::string_view prompt);
 
 Elevator::Elevator(int current_floor, std::string direction)
-    : current_floor(current_floor), direction(std::move(direction)) {
+: current_floor(current_floor), direction(std::move(direction)) {
     add_floor(current_floor);
     next_floor = 0;
 }
 
 // Start the elevator
 void Elevator::run(int user_floor) {
-        add_floor(user_floor);
-        move_elevator(user_floor);
-        print_status();
+    add_floor(user_floor);
+    move_elevator(user_floor);
+    print_status();
 
-        int target_floor = get_floor("Target floor");
-        add_floor(target_floor);
-        move_elevator(target_floor);
+    int target_floor = get_floor("Target floor");
+    add_floor(target_floor);
+    move_elevator(target_floor);
 
-        print_status();
-        recently_visited.push(current_floor);
-        print_recent_floors();
+    print_status();
+    recently_visited.push(current_floor);
+    print_recent_floors();
 }
 
 void Elevator::print_status() {
@@ -47,6 +47,7 @@ void Elevator::print_recent_floors() {
         std::cout << recently_visited.get_top() << " ";
         recently_visited.pop();
     }
+    std::cout << std::endl;
 }
 
 void Elevator::move_elevator(int user_floor) {
@@ -81,8 +82,8 @@ void Elevator::add_floor(int floor) {
     // If the elevator's direction is opposite from user specified direction,
     // lower the priority of the floor being enqueued.
     if (!(this->direction == "up" && current_floor < floor) &&
-            !(this->direction == "down" && current_floor > floor)) {
-            priority += 9;
+        !(this->direction == "down" && current_floor > floor)) {
+        priority += 9;
     }
 
     int status = floor_queue.enqueue(floor, priority);

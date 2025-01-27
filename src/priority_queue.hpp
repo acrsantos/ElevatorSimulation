@@ -111,7 +111,7 @@ struct PriorityQueue {
     }
 
     // For calculating where the parent, left child, and right child of a node are
-    int parent(int i) { return (i - 2) / 2; }
+    int parent(int i) { return (i - 1) / 2; }
     int left_child(int i) { return 2*i + 1; }
     int right_child(int i) { return 2*i + 2; }
 
