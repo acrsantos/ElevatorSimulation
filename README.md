@@ -1,7 +1,11 @@
-# BUILD
+# Algorithm Activity 1 - Elevator Simulation
 ## REQUIREMENTS
 - C++ Compiler (g++) OR CMake
 
+## Clone the repository
+```
+git clone https://github.com/acrsantos/ElevatorSimulation.git
+```
 ## BUILD & RUN
 ### Using g++
 ```
@@ -15,9 +19,3 @@ g++ -o elevator src/main.cpp src/elevator.cpp src/logger.cpp
 cd ElevatorSimulation
 ./build.sh
 ./build/Debug/elevator
-```
-
-```
-```
-```
-```
